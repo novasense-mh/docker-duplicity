@@ -19,6 +19,7 @@ RUN set -x \
         python3 \
         py3-paramiko \
         rsync \
+        rclone \
  && update-ca-certificates
 
 COPY pyproject.toml poetry.lock /
@@ -53,5 +54,5 @@ USER duplicity
 # Brief check that it works.
 RUN poetry run duplicity --version
 
-ENTRYPOINT ["poetry", "shell"]
+ENTRYPOINT ["poetry", "run"]
 CMD ["duplicity"]
