@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ github.repository_owner }}/duplicity
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/duplicity
           tags: |
             type=ref,event=branch
             type=ref,event=pr
